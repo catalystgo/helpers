@@ -8,7 +8,7 @@ import (
 )
 
 type SaveFileOpt struct {
-	override bool // true - override existing files (default is false)
+	Override bool // true - override existing files (default is false)
 }
 
 func SaveFile(file string, data []byte, cfg *SaveFileOpt) error {
@@ -19,7 +19,7 @@ func SaveFile(file string, data []byte, cfg *SaveFileOpt) error {
 
 	_, err := os.Stat(file)
 	if err == nil {
-		if cfg.override {
+		if cfg.Override {
 			log.Warnf("override file (%s)", file)
 		} else {
 			log.Warnf("skip file (%s) => already exist", file)
